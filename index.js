@@ -10,57 +10,82 @@ const newsQuery = document.getElementById("newsQuery");
 const newsType = document.getElementById("newsType");
 const newsdetails = document.getElementById("newsdetails");
 
+const next=document.getElementById('next');
+const prev=document.getElementById('prev');
+
+var page=1;
+let newsCategory='';
+
 // Array
 var newsDataArr = [];
 
 // apis 
-const API_KEY = "YOUR_API_KEY";
-const HEADLINES_NEWS = "https://newsapi.org/v2/top-headlines?country=in&apiKey=";
-const GENERAL_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=general&apiKey=";
-const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=";
-const SPORTS_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=";
-const ENTERTAINMENT_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=";
-const TECHNOLOGY_NEWS = "https://newsapi.org/v2/top-headlines?country=in&category=technology&pageSize=8&apiKey=";
-const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
+const API_KEY = "6f838c6fa1a2445ebb0268cc7acd638c";
+const HEADLINES_NEWS = `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&apiKey=`;
+const GENERAL_NEWS = `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&category=general&apiKey=`;
+const BUSINESS_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=business&page=${page}&pageSize=6&apiKey=`;
+const SPORTS_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=sports&page=${page}&pageSize=6&apiKey=`;
+const ENTERTAINMENT_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=entertainment&page=${page}&pageSize=6&apiKey=`;
+const TECHNOLOGY_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=6&apiKey=`;
+const SEARCH_NEWS = `https://newsapi.org/v2/everything?q=`;
 
 window.onload = function() {
     newsType.innerHTML="<h4>Headlines</h4>";
     fetchHeadlines();
 };
 
+prev.addEventListener("click",function(){
+    prevHandler();
+});
+
+
+next.addEventListener("click",function(){
+    nextHandler();
+});
+
 
 generalBtn.addEventListener("click",function(){
+    let tempPage=1;
+    newsCategory='general';
     newsType.innerHTML="<h4>General news</h4>";
     fetchGeneralNews();
 });
 
 businessBtn.addEventListener("click",function(){
+    newsCategory='business';
+    let tempPage=1;
     newsType.innerHTML="<h4>Business</h4>";
-    fetchBusinessNews();
+    fetchBusinessNews(tempPage);
 });
 
 sportsBtn.addEventListener("click",function(){
+    let tempPage=1;
+    newsCategory='sports';
     newsType.innerHTML="<h4>Sports</h4>";
-    fetchSportsNews();
+    fetchSportsNews(tempPage);
 });
 
 entertainmentBtn.addEventListener("click",function(){
+    let tempPage=1;
+    newsCategory='entertainment';
     newsType.innerHTML="<h4>Entertainment</h4>";
-    fetchEntertainmentNews();
+    fetchEntertainmentNews(tempPage);
 });
 
 technologyBtn.addEventListener("click",function(){
+    let tempPage=1;
+    
     newsType.innerHTML="<h4>Technology</h4>";
-    fetchTechnologyNews();
+    fetchTechnologyNews(tempPage);
 });
 
-searchBtn.addEventListener("click",function(){
-    newsType.innerHTML="<h4>Search : "+newsQuery.value+"</h4>";
-    fetchQueryNews();
-});
 
-const fetchHeadlines = async () => {
-    const response = await fetch(HEADLINES_NEWS+API_KEY);
+const fetchHeadlines = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
@@ -76,8 +101,13 @@ const fetchHeadlines = async () => {
 }
 
 
-const fetchGeneralNews = async () => {
-    const response = await fetch(GENERAL_NEWS+API_KEY);
+const fetchGeneralNews = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&category=general&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
@@ -92,8 +122,12 @@ const fetchGeneralNews = async () => {
     displayNews();
 }
 
-const fetchBusinessNews = async () => {
-    const response = await fetch(BUSINESS_NEWS+API_KEY);
+const fetchBusinessNews = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=business&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
@@ -108,8 +142,12 @@ const fetchBusinessNews = async () => {
     displayNews();
 }
 
-const fetchEntertainmentNews = async () => {
-    const response = await fetch(ENTERTAINMENT_NEWS+API_KEY);
+const fetchEntertainmentNews = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=entertainment&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
@@ -125,8 +163,13 @@ const fetchEntertainmentNews = async () => {
     displayNews();
 }
 
-const fetchSportsNews = async () => {
-    const response = await fetch(SPORTS_NEWS+API_KEY);
+const fetchSportsNews = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+    console.log(page);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=sports&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
@@ -141,15 +184,20 @@ const fetchSportsNews = async () => {
     displayNews();
 }
 
-const fetchTechnologyNews = async () => {
-    const response = await fetch(TECHNOLOGY_NEWS+API_KEY);
+const fetchTechnologyNews = async (tempPage) => {
+    if(tempPage==1)
+    {
+       page=tempPage;
+    }
+    newsCategory='technology';
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+
     newsDataArr = [];
     if(response.status >=200 && response.status < 300) {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else {
         // handle errors
-        console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>No data found.</h5>"
         return;
     }
@@ -157,24 +205,60 @@ const fetchTechnologyNews = async () => {
     displayNews();
 }
 
-const fetchQueryNews = async () => {
 
-    if(newsQuery.value == null)
-        return;
+function prevHandler()
+{
+   page=page-1;
+   if(newsCategory=='technology')
+   {
+    fetchTechnologyNews();
+   }
+   else if(newsCategory=='sports')
+   {
+    fetchSportsNews();
+   }
+   else if(newsCategory=='business')
+   {
+    fetchBusinessNews();
+   }
+   else if(newsCategory=='entertainment')
+   {
+    fetchEntertainmentNews();
+   }
+   else if(newsCategory=='general')
+   {
+    fetchGeneralNews();
+   }
+   displayNews();
 
-    const response = await fetch(SEARCH_NEWS+encodeURIComponent(newsQuery.value)+"&apiKey="+API_KEY);
-    newsDataArr = [];
-    if(response.status >= 200 && response.status < 300) {
-        const myJson = await response.json();
-        newsDataArr = myJson.articles;
-    } else {
-        //error handle
-        console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
-        return;
-    }
+}
 
-    displayNews();
+function nextHandler()
+{
+    page=page+1;
+   if(newsCategory=='technology')
+   {
+    
+    fetchTechnologyNews();
+   }
+   else if(newsCategory=='sports')
+   {
+    fetchSportsNews();
+   }
+   else if(newsCategory=='business')
+   {
+    fetchBusinessNews();
+   }
+   else if(newsCategory=='entertainment')
+   {
+    fetchEntertainmentNews();
+   }
+   else if(newsCategory=='general')
+   {
+    fetchGeneralNews();
+   }
+   displayNews();
+
 }
 
 function displayNews() {
@@ -191,21 +275,38 @@ function displayNews() {
         var date = news.publishedAt.split("T");
         
         var col = document.createElement('div');
-        col.className="col-sm-12 col-md-4 col-lg-3 p-2 card";
+        col.className="col-sm-12 col-md-3 col-lg-4";
 
         var card = document.createElement('div');
-        card.className = "p-2";
+        card.className = "card";
+        
 
         var image = document.createElement('img');
-        image.setAttribute("height","matchparent");
+       image.className='image'
         image.setAttribute("width","100%");
-        image.src=news.urlToImage;
+        if(news.urlToImage==null)
+        {
+            image.src='no_image.jpg';
+        }
+        else
+        {
+            image.src=news.urlToImage;
+
+        }
 
         var cardBody = document.createElement('div');
         
         var newsHeading = document.createElement('h5');
         newsHeading.className = "card-title";
-        newsHeading.innerHTML = news.title;
+        if(news.title!=null)
+        {
+            newsHeading.innerHTML = news.title.substring(0,85);
+        }
+        else
+        {
+           newsHeading.innerHTML ='No Heading';
+        }
+        
 
         var dateHeading = document.createElement('h6');
         dateHeading.className = "text-primary";
@@ -213,7 +314,15 @@ function displayNews() {
 
         var discription = document.createElement('p');
         discription.className="text-muted";
-        discription.innerHTML = news.description;
+        if(news.description!=null)
+        {
+            discription.innerHTML = news.description.substring(0,85);
+        }
+        else
+        {
+            discription.innerHTML ='Tap Below to Know More';
+        }
+      
 
         var link = document.createElement('a');
         link.className="btn btn-dark";
