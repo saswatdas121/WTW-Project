@@ -1,28 +1,36 @@
-.card {
-    max-width: 280px;
-    margin: 20px 0px 20px 0px;
-    height: 455px;
-    overflow-x: auto;
+main {
+    animation: animateBg 10s linear infinite;
+    background-image: linear-gradient(0deg, #cf5c5c, #c19b4a, #def2a0, #c6ee4a, #42eca6, #64b3d9, #208ea2, #498ada, #5b73df, #897ed3, #cf5c5c, #c19b4a);
+    background-size: 100% 1100%;
+    /* height: 100vh; */
+    width: 100vw;
 }
 
-.card:hover {
-    transform: scale(1.05);
-    /* transition: 1ms ease-in-out; */
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    /* transition: 1ms ease-in-out; */
-    cursor: pointer;
+@keyframes animateBg {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
 }
 
 .navbar {
     background: none !important;
+    margin-bottom: 2em;
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
-a.navbar-brand:hover {
-    background: none;
+.navbar-brand {
+    font-weight: bold;
+    font-size: 2rem;
+    background-color: brown;
+    border-radius: 50%;
+    padding: 8px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: 1em !important;
 }
 
 .navbar-toggler {
@@ -34,60 +42,52 @@ a.navbar-brand:hover {
     width: 1.5em;
 }
 
-.image {
-    height: 200px;
-}
-
-a {
-    text-decoration: none;
+.nav-link {
     display: inline-block;
     padding: 8px 16px;
+    text-decoration: none;
+    color: black !important;
+    display: block;
+    font-size: 1.4rem;
 }
 
 .nav-link:hover {
     color: black !important;
 }
 
-
-/* .previous {
-    background-color: #f1f1f1;
-    color: black;
+.nav-link::after {
+    content: "";
+    width: 0;
+    height: 1.5px;
+    background-color: coral;
+    margin: auto;
+    display: block;
 }
 
-.next {
-    background-color: #04AA6D;
-    color: white;
-} */
+.nav-link:hover::after {
+    width: 100%;
+    transition: width 0.3s linear;
+}
 
-.round {
-    border-radius: 50%;
+h4 {
+    font-size: 2rem;
+}
+
+.card {
+    max-width: 280px;
+    margin: 20px 0px 20px 0px;
+    height: 455px;
+    overflow-x: auto;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: .2s ease-in-out;
+    cursor: pointer;
 }
 
 .cardBody {
     margin: 0.6rem;
-}
-
-#prev,
-#next {
-    all: unset;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 0.3rem 1.5rem;
-    background-color: rgb(248, 247, 247);
-}
-
-#prev_next_btn {
-    text-align: center;
-}
-
-#next {
-    margin-left: 1em;
-    padding: 0.3rem 2rem;
-}
-
-#prev:hover,
-#next:hover {
-    background-color: rgb(230, 228, 228);
 }
 
 .innerdiv {
@@ -105,25 +105,47 @@ a {
     transition: height .5s ease;
 }
 
-.nav-link {
-    padding: 1rem;
-    text-decoration: none;
-    color: black !important;
-    display: block;
+.image {
+    height: 200px;
 }
 
-.nav-link::after {
-    content: "";
-    width: 0;
-    height: 1.5px;
-    background-color: coral;
-    margin: auto;
-    display: block;
+
+/* .previous {
+    background-color: #f1f1f1;
+    color: black;
 }
 
-.nav-link:hover::after {
-    width: 100%;
-    transition: width 0.3s linear;
+.next {
+    background-color: #04AA6D;
+    color: white;
+} */
+
+.round {
+    border-radius: 50%;
+}
+
+#prev,
+#next {
+    all: unset;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 0.5rem 1.6rem;
+    background-color: rgb(248, 247, 247);
+}
+
+#prev_next_btn {
+    text-align: center;
+}
+
+#next {
+    margin-left: 1em;
+    padding: 0.5rem 2.2rem;
+}
+
+#prev:hover,
+#next:hover {
+    background-color: rgb(230, 228, 228);
+    cursor: pointer;
 }
 
 .author {
@@ -141,6 +163,9 @@ a {
     .card {
         height: auto;
     }
+    h4 {
+        text-align: center;
+    }
 }
 
 @media(max-width:1000px) {
@@ -153,10 +178,17 @@ a {
     .nav-link {
         color: rgb(164, 158, 158) !important;
         padding: 8px 16px;
+        font-size: 1.3rem;
     }
     .nav-link:hover {
         background-color: #ddd !important;
         color: rgb(2, 2, 2) !important;
+    }
+    .navbar-brand {
+        font-size: 1.5rem;
+        padding: 3px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
