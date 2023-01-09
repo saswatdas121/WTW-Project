@@ -17,7 +17,6 @@
     cursor: pointer;
 }
 
-
 .navbar {
     background: none !important;
 }
@@ -35,15 +34,6 @@ a.navbar-brand:hover {
     width: 1.5em;
 }
 
-.nav-link:hover {
-
-    color: rgb(0, 0, 0) !important;
-    /* background: none; */
-
-    color: black !important;
-
-}
-
 .image {
     height: 200px;
 }
@@ -54,14 +44,12 @@ a {
     padding: 8px 16px;
 }
 
-a:hover {
-
-    background-color: #ddd;
-
-    color: black;
+.nav-link:hover {
+    color: black !important;
 }
 
-.previous {
+
+/* .previous {
     background-color: #f1f1f1;
     color: black;
 }
@@ -69,7 +57,7 @@ a:hover {
 .next {
     background-color: #04AA6D;
     color: white;
-}
+} */
 
 .round {
     border-radius: 50%;
@@ -147,24 +135,20 @@ a:hover {
         display: flex;
         justify-content: center;
     }
-
     .nav-item:hover {
         border-left: 4px solid red;
     }
-
     .card {
         height: auto;
     }
 }
 
 @media(max-width:1000px) {
-
     .navbar {
         background-color: black !important;
     }
     .nav-link:hover::after {
         width: 0;
-        /* transition: width 0.3s linear; */
     }
     .nav-link {
         color: rgb(164, 158, 158) !important;
@@ -173,15 +157,12 @@ a:hover {
     .nav-link:hover {
         background-color: #ddd !important;
         color: rgb(2, 2, 2) !important;
-}
-    .nav-item:hover {
-        border-left: 4px solid red;
-
     }
 }
 
 @media(max-width:1200px) {
     .card {
         max-width: 350px;
+        /* margin: 27px; */
     }
 }
