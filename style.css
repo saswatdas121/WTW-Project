@@ -17,6 +17,7 @@
     cursor: pointer;
 }
 
+
 .navbar {
     background: none !important;
 }
@@ -35,8 +36,12 @@ a.navbar-brand:hover {
 }
 
 .nav-link:hover {
+
     color: rgb(0, 0, 0) !important;
     /* background: none; */
+
+    color: black !important;
+
 }
 
 .image {
@@ -50,6 +55,9 @@ a {
 }
 
 a:hover {
+
+    background-color: #ddd;
+
     color: black;
 }
 
@@ -139,15 +147,18 @@ a:hover {
         display: flex;
         justify-content: center;
     }
+
     .nav-item:hover {
         border-left: 4px solid red;
     }
+
     .card {
         height: auto;
     }
 }
 
 @media(max-width:1000px) {
+
     .navbar {
         background-color: black !important;
     }
@@ -162,12 +173,15 @@ a:hover {
     .nav-link:hover {
         background-color: #ddd !important;
         color: rgb(2, 2, 2) !important;
+}
+    .nav-item:hover {
+        border-left: 4px solid red;
+
     }
 }
 
 @media(max-width:1200px) {
     .card {
         max-width: 350px;
-        /* margin: 27px; */
     }
 }

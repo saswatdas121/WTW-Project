@@ -185,6 +185,8 @@ const fetchTechnologyNews = async(tempPage) => {
     }
     newsCategory = 'technology';
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=8&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+
 
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
