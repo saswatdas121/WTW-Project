@@ -84,7 +84,7 @@ const fetchHeadlines = async(tempPage) => {
     if (tempPage == 1) {
         page = tempPage;
     }
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=8&page=${page}&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
@@ -105,7 +105,7 @@ const fetchGeneralNews = async(tempPage) => {
         page = tempPage;
     }
 
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&category=general&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&pageSize=8&page=${page}&category=general&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
@@ -124,7 +124,7 @@ const fetchBusinessNews = async(tempPage) => {
     if (tempPage == 1) {
         page = tempPage;
     }
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=business&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=business&page=${page}&pageSize=8&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
@@ -143,7 +143,7 @@ const fetchEntertainmentNews = async(tempPage) => {
     if (tempPage == 1) {
         page = tempPage;
     }
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=entertainment&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=entertainment&page=${page}&pageSize=8&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
@@ -164,7 +164,7 @@ const fetchSportsNews = async(tempPage) => {
         page = tempPage;
     }
     console.log(page);
-    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=sports&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=sports&page=${page}&pageSize=8&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {
         const myJson = await response.json();
@@ -184,7 +184,9 @@ const fetchTechnologyNews = async(tempPage) => {
         page = tempPage;
     }
     newsCategory = 'technology';
+    const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=8&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
     const response = await fetch(`https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=6&apiKey=6f838c6fa1a2445ebb0268cc7acd638c`);
+
 
     newsDataArr = [];
     if (response.status >= 200 && response.status < 300) {

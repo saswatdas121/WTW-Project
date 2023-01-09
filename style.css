@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+
+.navbar {
+    background: none !important;
+}
+
 a.navbar-brand:hover {
     background: none;
 }
@@ -31,7 +36,12 @@ a.navbar-brand:hover {
 }
 
 .nav-link:hover {
+
+    color: rgb(0, 0, 0) !important;
+    /* background: none; */
+
     color: black !important;
+
 }
 
 .image {
@@ -45,7 +55,9 @@ a {
 }
 
 a:hover {
+
     background-color: #ddd;
+
     color: black;
 }
 
@@ -105,19 +117,66 @@ a:hover {
     transition: height .5s ease;
 }
 
+.nav-link {
+    padding: 1rem;
+    text-decoration: none;
+    color: black !important;
+    display: block;
+}
+
+.nav-link::after {
+    content: "";
+    width: 0;
+    height: 1.5px;
+    background-color: coral;
+    margin: auto;
+    display: block;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    transition: width 0.3s linear;
+}
+
+.author {
+    background-color: black;
+}
+
 @media(max-width:770px) {
     .newsCard {
         display: flex;
         justify-content: center;
     }
+
+    .nav-item:hover {
+        border-left: 4px solid red;
+    }
+
     .card {
         height: auto;
     }
 }
 
 @media(max-width:1000px) {
+
+    .navbar {
+        background-color: black !important;
+    }
+    .nav-link:hover::after {
+        width: 0;
+        /* transition: width 0.3s linear; */
+    }
+    .nav-link {
+        color: rgb(164, 158, 158) !important;
+        padding: 8px 16px;
+    }
+    .nav-link:hover {
+        background-color: #ddd !important;
+        color: rgb(2, 2, 2) !important;
+}
     .nav-item:hover {
         border-left: 4px solid red;
+
     }
 }
 
