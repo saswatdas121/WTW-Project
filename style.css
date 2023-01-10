@@ -1,22 +1,5 @@
-main {
-    animation: animateBg 10s linear infinite;
-    background-image: linear-gradient(0deg, #cf5c5c, #c19b4a, #def2a0, #c6ee4a, #42eca6, #64b3d9, #208ea2, #498ada, #5b73df, #897ed3, #cf5c5c, #c19b4a);
-    background-size: 100% 1100%;
-    /* height: 100vh; */
-    width: 100vw;
-}
-
-@keyframes animateBg {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 0% 100%;
-    }
-}
-
 .navbar {
-    background: none !important;
+    background: black !important;
     margin-bottom: 2em;
     padding-top: 2em;
     padding-bottom: 2em;
@@ -46,13 +29,19 @@ main {
     display: inline-block;
     padding: 8px 16px;
     text-decoration: none;
-    color: black !important;
+    color: rgb(164, 158, 158) !important;
     display: block;
     font-size: 1.4rem;
 }
 
 .nav-link:hover {
     color: black !important;
+    background-color: #d6d0d0;
+    border-radius: 10px;
+}
+
+.navbar-nav {
+    margin-left: 1em;
 }
 
 .nav-link::after {
@@ -109,17 +98,6 @@ h4 {
     height: 200px;
 }
 
-
-/* .previous {
-    background-color: #f1f1f1;
-    color: black;
-}
-
-.next {
-    background-color: #04AA6D;
-    color: white;
-} */
-
 .round {
     border-radius: 50%;
 }
@@ -157,9 +135,6 @@ h4 {
         display: flex;
         justify-content: center;
     }
-    .nav-item:hover {
-        border-left: 4px solid red;
-    }
     .card {
         height: auto;
     }
@@ -183,6 +158,8 @@ h4 {
     .nav-link:hover {
         background-color: #ddd !important;
         color: rgb(2, 2, 2) !important;
+        border-left: 4px solid red;
+        border-radius: 0 !important;
     }
     .navbar-brand {
         font-size: 1.5rem;
@@ -195,6 +172,5 @@ h4 {
 @media(max-width:1200px) {
     .card {
         max-width: 350px;
-        /* margin: 27px; */
     }
 }

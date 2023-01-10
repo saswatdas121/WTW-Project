@@ -19,16 +19,6 @@ let newsCategory = '';
 // Array
 var newsDataArr = [];
 
-// apis 
-const API_KEY = "6f838c6fa1a2445ebb0268cc7acd638c";
-const HEADLINES_NEWS = `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&apiKey=`;
-const GENERAL_NEWS = `https://newsapi.org/v2/top-headlines?country=in&pageSize=6&page=${page}&category=general&apiKey=`;
-const BUSINESS_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=business&page=${page}&pageSize=6&apiKey=`;
-const SPORTS_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=sports&page=${page}&pageSize=6&apiKey=`;
-const ENTERTAINMENT_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=entertainment&page=${page}&pageSize=6&apiKey=`;
-const TECHNOLOGY_NEWS = `https://newsapi.org/v2/top-headlines?country=in&category=technology&page=${page}&pageSize=6&apiKey=`;
-const SEARCH_NEWS = `https://newsapi.org/v2/everything?q=`;
-
 window.onload = function() {
     newsType.innerHTML = "<h4>Headlines</h4>";
     fetchHeadlines();
@@ -238,11 +228,6 @@ function nextHandler() {
 function displayNews() {
 
     newsdetails.innerHTML = "";
-
-    // if(newsDataArr.length == 0) {
-    //     newsdetails.innerHTML = "<h5>No data found.</h5>"
-    //     return;
-    // }
 
     newsDataArr.forEach(news => {
 
